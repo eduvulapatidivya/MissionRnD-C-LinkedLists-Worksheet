@@ -1,4 +1,4 @@
-/*
+ /*
 OVERVIEW:  Given a single linked list (two digits as a node).Convert that to number
 
 
@@ -20,7 +20,28 @@ struct node {
 	int digit2;
 	struct node *next;
 };
+int gen_number(int sum, int data)
+{
+	sum = sum * 10 + data;
+	return sum;
+}
 
 int convert_sll_2digit_to_int(struct node *head){
-	return 0;
+	int sum = 0,data1,data2;
+	struct node*temp;
+	temp = head;
+	while (temp->next != NULL)
+	{
+		data1 = temp->digit1;
+		sum=gen_number(sum, data1);
+		data2 = temp->digit2;
+		sum=gen_number(sum, data2);
+		temp = temp->next;
+	
+	}
+	data1 = temp->digit1;
+	sum = gen_number(sum, data1);
+	data2 = temp->digit2;
+	sum = gen_number(sum, data2);
+	return sum;
 }
